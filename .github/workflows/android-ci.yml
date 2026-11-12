@@ -29,7 +29,23 @@ jobs:
         uses: android-actions/setup-android@v3
 
       - name: Install Android SDK packages
-        run: sdkmanager "platforms;android-36" "build-tools;36.0.0"
+        run: |
+          yes | sdkmanager --licenses || true
+          sdkmanager "platforms;android-36" "build-tools;36.0.0"
+
+      - name: Setup Environment and Keystore
+        run: |
+          if [ ! -f .env.example ]; then
+            echo "GEMINI_API_KEY=placeholder" > .env.example
+          fi
+          if [ ! -f .env ]; then
+            cp .env.example .env
+          fi
+          if [ -f debug.keystore.base64 ]; then
+            base64 -d debug.keystore.base64 > debug.keystore
+          elif [ ! -f debug.keystore ]; then
+            keytool -genkey -v -keystore debug.keystore -storepass android -alias androiddebugkey -keypass android -keyalg RSA -keysize 2048 -validity 10000 -dname "CN=Android Debug,O=Android,C=US"
+          fi
 
       - name: Run unit tests and assemble debug APK
         run: gradle :app:testDebugUnitTest :app:assembleDebug --stacktrace
