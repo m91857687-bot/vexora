@@ -25,7 +25,7 @@ import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material.icons.filled.Share
-import androidx.compose.material.icons.filled.Sort
+import androidx.compose.material.icons.automirrored.filled.Sort
 import androidx.compose.material.icons.filled.Stop
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
@@ -115,7 +115,7 @@ fun LibraryScreen() {
                 onClick = vm::cycleSort,
                 modifier = Modifier.testTag("library_sort_button").size(48.dp)
             ) {
-                Icon(Icons.Default.Sort, stringResource(R.string.sort), tint = primaryColor)
+                Icon(Icons.AutoMirrored.Filled.Sort, stringResource(R.string.sort), tint = primaryColor)
             }
         }
         Spacer(Modifier.height(12.dp))

@@ -169,11 +169,12 @@ class RecordingService : Service() {
                     writeWavHeader(partialFile, bytesWritten)
                     true
                 }.getOrDefault(false)
-                if (recovered && partialFile != null) {
+                if (recovered) {
+                    val savedFile = partialFile ?: return@launch
                     RecordingSession.set(
                         RecordingUiState(
                             status = RecordingStatus.STOPPED,
-                            outputPath = partialFile.absolutePath,
+                            outputPath = savedFile.absolutePath,
                             errorMessage = getString(R.string.recording_partial_saved)
                         )
                     )
