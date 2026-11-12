@@ -1,0 +1,6 @@
+{
+  "name": "Voxera",
+  "description": "Premium offline voice recorder and audio processor with gain amplification, echo effects, and live waveform visualization.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
