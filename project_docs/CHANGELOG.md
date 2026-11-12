@@ -1,6 +1,8 @@
 # Changelog
 
 ## Phase 6 — Comprehensive Review, Code Hardening, and Build Finalization (Completed)
+- **Edge-to-Edge System Integration:** Integrated `enableEdgeToEdge()` in `MainActivity` conforming to modern Android 15/16 system UI and window insets guidelines.
+- **Exhaustive Release Checklist Verification:** Audited and updated `RELEASE_CHECKLIST.md` verifying build, automated testing, recording engine, library management, offline audio DSP, themes, and zero-network privacy.
 - **GitHub Import & Secrets Build Fix:** Configured valid `.env` and `.env.example` placeholders required by the Secrets Gradle Plugin, resolving an unhandled evaluation exception and preventing invalid `BuildConfig` generation (`GEMINI_API_KEY = ;`).
 - **CI Workflow Modernization:** Upgraded `.github/workflows/android-ci.yml` from JDK 17 / Gradle 8.13 to JDK 21 / Gradle 9.3.1 to strictly match AGP 9.1.1 toolchain requirements.
 - **Code Cleanliness & Modern Compose API:** Modernized `LibraryScreen.kt` using `Icons.AutoMirrored.Filled.Sort` and simplified smart-cast conditions in `RecordingService.kt`, eliminating all compiler warnings.
